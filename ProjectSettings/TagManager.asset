@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Road
+  - TopNearGrass
+  - TopFarGrass
+  - BottomNearGrass
+  - BottomFarLand1
+  - BottomFarLand2
+  - BottomFarLand3
+  - BottomFarLand4
+  - BottomFarLand5
+  - Obstacle
+  - Star
+  - ObTop
+  - ObBottom
+  - ObMiddle
+  - Trex
+  - StarEffect
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Top far ground
+    uniqueID: 2274564563
+    locked: 0
+  - name: Top near ground
+    uniqueID: 2789218425
+    locked: 0
+  - name: Tree top
+    uniqueID: 1738079773
+    locked: 0
+  - name: Road
+    uniqueID: 1865575543
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2478797573
+    locked: 0
+  - name: Main
+    uniqueID: 788418861
+    locked: 0
+  - name: Bottom near ground
+    uniqueID: 1921960145
+    locked: 0
+  - name: Bottom far ground F1
+    uniqueID: 3259698035
+    locked: 0
+  - name: Bottom far ground F2
+    uniqueID: 1419193285
+    locked: 0
+  - name: Bottom far ground F3
+    uniqueID: 1089496753
+    locked: 0
+  - name: Bottom far ground F4
+    uniqueID: 2207600947
+    locked: 0
+  - name: Bottom far ground F5
+    uniqueID: 27461077
+    locked: 0
+  - name: Tree bottom
+    uniqueID: 3201686445
+    locked: 0
+  - name: UI
+    uniqueID: 1876214407
+    locked: 0
