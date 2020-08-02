@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,24 +9,38 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    private SpriteRenderer player_Renderer;
+
     private string jump_Animation = "PlayerJump";
     private string change_Line_Animation = "ChangeLine";
 
     public GameObject player;
     public GameObject shadow;
+    public GameObject explosion;
 
     public Vector3 first_PosOfPlayer;
     public Vector3 second_PosOfPlayer;
 
+    public Sprite TRex_Sprite;
+    public Sprite player_Sprite;
+
     [HideInInspector]
     public bool player_Died;
     public bool player_Jump;
+
+    private bool TRex_Trigger;
+
+    private GameObject[] start_Effect;
 
     private void Awake()
     {
         MakeInstance();
 
         anim = player.GetComponent<Animator>();
+
+        player_Renderer = player.GetComponent<SpriteRenderer>();
+
+        start_Effect = GameObject.FindGameObjectsWithTag(MyTags.StarEffect);
     }
 
     private void Update()
@@ -70,5 +85,89 @@ public class PlayerController : MonoBehaviour
                 player_Jump = true;
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.CompareTag(MyTags.Obstacles))
+        {
+            if (!TRex_Trigger)
+                DieWithObstacle(target);
+            else
+                DestroyObstacle(target);
+        }
+
+        if (target.CompareTag(MyTags.Trex))
+        {
+            TRex_Trigger = true;
+            player_Renderer.sprite = TRex_Sprite;
+            target.gameObject.SetActive(false);
+
+            // Sound manager to play the music TO DO
+
+            StartCoroutine(TRexDuration());
+        }
+
+        if (target.CompareTag(MyTags.Star))
+        {
+            for (int i = 0; i < start_Effect.Length; i++)
+            {
+                if (!start_Effect[i].activeInHierarchy)
+                {
+                    start_Effect[i].transform.position = target.transform.position;
+                    start_Effect[i].SetActive(true);
+                    break; // To make sure we don't override with the loop
+                }
+            }
+
+            target.gameObject.SetActive(false);
+            // Sound manager play sound TO DO
+            // Gameplay controller increase star count TO DO
+        }
+    }
+
+    void Die()
+    {
+        player_Died = true;
+        player.SetActive(false);
+        shadow.SetActive(false);
+
+        GameplayController.instance.moveSpeed = 0f;
+        //GameplayController.instance.GameOver(); // TO DO
+
+        // Sound manager to play dead player music TO DO
+        // Sound manager to player gameover sound TO DO
+    }
+
+    void DieWithObstacle(Collider2D target)
+    {
+        Die();
+
+        explosion.transform.position = target.transform.position;
+        explosion.SetActive(true);
+        target.gameObject.SetActive(false);
+
+        // Sound manager to play player dead sound TO DO
+    }
+
+    void DestroyObstacle(Collider2D target)
+    {
+        explosion.transform.position = target.transform.position;
+        explosion.SetActive(false); // turn off the explosion if it's already turned on
+        explosion.SetActive(true);
+
+        target.gameObject.SetActive(false);
+
+        // Sound manager
+    }
+
+    IEnumerator TRexDuration()
+    {
+        yield return new WaitForSeconds(7f);
+
+        if (TRex_Trigger)
+            TRex_Trigger = false;
+
+        player_Renderer.sprite = player_Sprite;
     }
 }

@@ -21,4 +21,10 @@ public class AnimationEvents : MonoBehaviour
         if (PlayerController.instance.player_Jump)
             PlayerController.instance.player_Jump = false;
     }
+
+    // Called in Animation system of Unity
+    void AnimationEnded()
+    {
+        gameObject.SetActive(false);
+    }
 }
