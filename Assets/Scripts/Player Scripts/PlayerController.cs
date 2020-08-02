@@ -64,14 +64,14 @@ public class PlayerController : MonoBehaviour
             anim.Play(change_Line_Animation);
             transform.localPosition = second_PosOfPlayer;
 
-            // Play the sound
+            SoundManager.instance.PlayMoveLineSound();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
         {
             anim.Play(change_Line_Animation);
             transform.localPosition = first_PosOfPlayer;
 
-            // Play the sound
+            SoundManager.instance.PlayMoveLineSound();
         }
     }
 
@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
             {
                 anim.Play(jump_Animation);
                 player_Jump = true;
+
+                SoundManager.instance.PlayJumpSound();
             }
         }
     }
@@ -103,7 +105,7 @@ public class PlayerController : MonoBehaviour
             player_Renderer.sprite = TRex_Sprite;
             target.gameObject.SetActive(false);
 
-            // Sound manager to play the music TO DO
+            SoundManager.instance.PlayPowerUpSound();
 
             StartCoroutine(TRexDuration());
         }
@@ -121,7 +123,8 @@ public class PlayerController : MonoBehaviour
             }
 
             target.gameObject.SetActive(false);
-            // Sound manager play sound TO DO
+
+            SoundManager.instance.PlayCoinSound();
             // Gameplay controller increase star count TO DO
         }
     }
@@ -135,8 +138,8 @@ public class PlayerController : MonoBehaviour
         GameplayController.instance.moveSpeed = 0f;
         //GameplayController.instance.GameOver(); // TO DO
 
-        // Sound manager to play dead player music TO DO
-        // Sound manager to player gameover sound TO DO
+        SoundManager.instance.PlayDeadSound();
+        SoundManager.instance.PlayeGameOverSound();
     }
 
     void DieWithObstacle(Collider2D target)
@@ -147,7 +150,7 @@ public class PlayerController : MonoBehaviour
         explosion.SetActive(true);
         target.gameObject.SetActive(false);
 
-        // Sound manager to play player dead sound TO DO
+        SoundManager.instance.PlayDeadSound();
     }
 
     void DestroyObstacle(Collider2D target)
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
         target.gameObject.SetActive(false);
 
-        // Sound manager
+        SoundManager.instance.PlayDeadSound();
     }
 
     IEnumerator TRexDuration()
