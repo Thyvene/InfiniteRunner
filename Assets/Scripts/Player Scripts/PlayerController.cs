@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
             target.gameObject.SetActive(false);
 
             SoundManager.instance.PlayCoinSound();
-            // Gameplay controller increase star count TO DO
+            GameplayController.instance.UpdateStarScore();
         }
     }
 
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         shadow.SetActive(false);
 
         GameplayController.instance.moveSpeed = 0f;
-        //GameplayController.instance.GameOver(); // TO DO
+        GameplayController.instance.GameOver();
 
         SoundManager.instance.PlayDeadSound();
         SoundManager.instance.PlayeGameOverSound();

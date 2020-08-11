@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 215488467}
   - component: {fileID: 215488466}
   m_Layer: 5
-  m_Name: Restart Button
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,7 +1289,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 215488467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &215488467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1519,7 @@ GameObject:
   - component: {fileID: 318316244}
   - component: {fileID: 318316243}
   m_Layer: 5
-  m_Name: Text
+  m_Name: StarText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2634,7 +2645,7 @@ GameObject:
   - component: {fileID: 558095685}
   - component: {fileID: 558095684}
   m_Layer: 5
-  m_Name: Star Score
+  m_Name: StarScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2907,7 +2918,7 @@ GameObject:
   - component: {fileID: 659778106}
   - component: {fileID: 659778105}
   m_Layer: 5
-  m_Name: Best Score
+  m_Name: BestScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3736,7 +3747,7 @@ GameObject:
   - component: {fileID: 764288286}
   - component: {fileID: 764288285}
   m_Layer: 5
-  m_Name: Trex Icon
+  m_Name: TrexIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4239,6 +4250,13 @@ MonoBehaviour:
   distance_Factor: 1
   obstacles_Obj: {fileID: 795883992}
   obstacles_List: []
+  pause_Panel: {fileID: 1791962404}
+  gameOver_Panel: {fileID: 2062760007}
+  pause_Anim: {fileID: 1791962406}
+  gameOver_Anim: {fileID: 2062760009}
+  final_Score_Text: {fileID: 897341123}
+  best_Score_Text: {fileID: 659778105}
+  final_Star_Score_Text: {fileID: 558095684}
   obstacles_Is_Active: 0
 --- !u!4 &867623381
 Transform:
@@ -4364,7 +4382,7 @@ GameObject:
   - component: {fileID: 890323729}
   - component: {fileID: 890323728}
   m_Layer: 5
-  m_Name: Score Label
+  m_Name: ScoreLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4442,7 +4460,7 @@ GameObject:
   - component: {fileID: 897341124}
   - component: {fileID: 897341123}
   m_Layer: 5
-  m_Name: Score Text
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5099,7 +5117,7 @@ GameObject:
   - component: {fileID: 1022598304}
   - component: {fileID: 1022598303}
   m_Layer: 5
-  m_Name: Star Icon
+  m_Name: StarIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5754,7 +5772,7 @@ GameObject:
   - component: {fileID: 1073793160}
   - component: {fileID: 1073793159}
   m_Layer: 5
-  m_Name: Home Button
+  m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5821,7 +5839,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073793160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: HomeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1073793160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6321,7 +6350,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1215933031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: HomeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215933031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,7 +7317,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1423455428}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1423455428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8794,7 +8845,7 @@ GameObject:
   - component: {fileID: 1703441366}
   - component: {fileID: 1703441365}
   m_Layer: 5
-  m_Name: Player Icon
+  m_Name: PlayerIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9080,7 +9131,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1722820183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1722820183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9353,6 +9415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791962405}
   - component: {fileID: 1791962406}
+  - component: {fileID: 1791962407}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -9394,13 +9457,25 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1f1749d5a2061394d83a5f3531d67b9d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1791962407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791962404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9238ddd99a07a5a4ab951dbfb5948b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1799120134 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4347242150691146855, guid: 3651922053c78fb488662fcbaa3980f9,
@@ -9811,7 +9886,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939353365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 867623380}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1939353365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10460,7 +10546,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1f1749d5a2061394d83a5f3531d67b9d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

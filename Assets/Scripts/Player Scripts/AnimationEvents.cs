@@ -27,4 +27,11 @@ public class AnimationEvents : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    // Called in Animation system of Unity
+    void PausePanelClose()
+    {
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
+    }
 }
