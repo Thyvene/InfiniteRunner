@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void MakeSingleton()
     {
-        if (instance)
+        if (instance != null)
             Destroy(gameObject);
-        else if (!instance)
+        else if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             for (int i = 1; i < heroes.Length; i++)
                 heroes[i] = false;
 
-            gameData = new GameData();
+            gameData = gameObject.AddComponent<GameData>();
             gameData.StarScore = starScore;
             gameData.ScoreCount = score_Count;
             gameData.Heroes = heroes;

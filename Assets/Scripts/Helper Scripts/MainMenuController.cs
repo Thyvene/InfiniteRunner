@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : MonoBehaviour //< Every functions in this class are called in Unity with OnClick function
 {
     public GameObject heroMenu;
     public Text starScoreText;
@@ -19,11 +19,25 @@ public class MainMenuController : MonoBehaviour
     public void HeroMenu()
     {
         heroMenu.SetActive(true);
-        // TODO Display the star score
+        starScoreText.text = "" + GameManager.instance.starScore;
     }
 
     public void HomeButton()
     {
         heroMenu.SetActive(false);
+    }
+
+    public void MusicButton()
+    {
+        if (GameManager.instance.playSound)
+        {
+            music_Img.sprite = music_Off;
+            GameManager.instance.playSound = false;
+        }
+        else
+        {
+            music_Img.sprite = music_On;
+            GameManager.instance.playSound = true;
+        }
     }
 }

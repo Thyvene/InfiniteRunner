@@ -99,8 +99,15 @@ public class GameplayController : MonoBehaviour
 
         if (round >= 30.0f && round < 60.0f)
             moveSpeed = 14.0f;
-        else if (round >= 60.0f)
-            moveSpeed = 16f;
+        else if (round > 60.0f)
+            moveSpeed = 16.0f;
+        else if (round > 90.0f)
+            moveSpeed = 18.0f;
+        else if (round > 120.0f)
+            moveSpeed = 20.0f;
+        else if (round > 150.0f)
+            StartCoroutine(IncreaseMoveSpeed());
+
     }
 
     void GetObstacles()
@@ -134,12 +141,24 @@ public class GameplayController : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+
+        best_Score_Text.text = GameManager.instance.score_Count.ToString();
+
+        GameManager.instance.starScore += star_Score_Count;
+        GameManager.instance.SaveGameData();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void HomeButton()
     {
         Time.timeScale = 1f;
+
+        best_Score_Text.text = GameManager.instance.score_Count.ToString();
+
+        GameManager.instance.starScore += star_Score_Count;
+        GameManager.instance.SaveGameData();
+
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -186,5 +205,12 @@ public class GameplayController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.6f);
         }
+    }
+
+    IEnumerator IncreaseMoveSpeed()
+    {
+        yield return new WaitForSeconds(10f);
+
+        moveSpeed += 5f;
     }
 }
